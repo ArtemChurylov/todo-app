@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.wsh.todo_app.Utils.DatabaseHandler;
 import com.wsh.todo_app.Utils.UsersData;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                         .findFirst()
                         .map(user -> {
                             if (user.getPassword().equals(password.getText().toString())) {
+                                DatabaseHandler.currentUser = user;
                                 Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(this, TaskActivity.class);
                                 startActivity(intent);

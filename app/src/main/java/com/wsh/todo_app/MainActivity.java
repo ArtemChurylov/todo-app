@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
 
         AppCompatButton loginbtn = (AppCompatButton) findViewById(R.id.loginbtn);
+        AppCompatButton regbtn = (AppCompatButton) findViewById(R.id.regbtn);
 
         loginbtn.setOnClickListener(view ->
                 UsersData.users.stream()
@@ -46,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
                             return null;
                         })
         );
+
+        regbtn.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RegistrationActivity.class);
+            startActivity(intent);
+        });
     }
 }
